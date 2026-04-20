@@ -1,0 +1,13 @@
+{
+  "name": "haunt-api",
+  "description": "Structured web extraction for AI agents. Extract clean JSON from any URL using plain-English prompts. Handles JavaScript rendering, Cloudflare, and complex layouts automatically.",
+  "version": "1.0.0",
+  "author": "Haunt API",
+  "homepage": "https://hauntapi.com",
+  "repository": "https://github.com/Darko893/haunt-mcp-server",
+  "license": "UNLICENSED",
+  "categories": ["web-browser", "automation"],
+  "compatibility": {
+    "claude_code": ">=1.0.0"
+  }
+}

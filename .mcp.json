@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "haunt": {
+      "url": "https://hauntapi.com/mcp/",
+      "description": "Web extraction — pass a URL and prompt, get structured JSON"
+    }
+  }
+}
