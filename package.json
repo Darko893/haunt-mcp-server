@@ -1,0 +1,30 @@
+{
+  "name": "haunt-api",
+  "version": "1.0.0",
+  "description": "Hosted MCP server for structured web extraction. Pass a URL and prompt, get clean JSON.",
+  "homepage": "https://hauntapi.com",
+  "documentation": "https://hauntapi.com/docs",
+  "repository": "https://github.com/Darko893/haunt-mcp-server",
+  "license": "UNLICENSED",
+  "private": true,
+  "mcp": {
+    "type": "remote",
+    "url": "https://hauntapi.com/mcp/",
+    "sse_url": "https://hauntapi.com/sse",
+    "tools": [
+      {
+        "name": "web_extract",
+        "description": "Extract structured data from any URL. Provide a URL and a plain-English description of what you want extracted."
+      },
+      {
+        "name": "get_usage",
+        "description": "Check your current API usage and remaining credits."
+      }
+    ],
+    "auth": {
+      "type": "api_key",
+      "description": "Pass your API key as the 'api_key' tool argument. Get one at https://hauntapi.com/#signup"
+    }
+  },
+  "keywords": ["mcp", "web-scraping", "web-extraction", "ai-agents", "structured-data", "mcp-server", "remote-mcp"]
+}
