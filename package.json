@@ -6,6 +6,7 @@
   "documentation": "https://hauntapi.com/docs",
   "repository": "https://github.com/Darko893/haunt-mcp-server",
   "license": "UNLICENSED",
+  "main": "index.js",
   "private": true,
   "mcp": {
     "type": "remote",
