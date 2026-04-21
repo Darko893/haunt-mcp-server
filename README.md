@@ -50,10 +50,10 @@ You get back structured JSON with exactly the fields you asked for.
 
 | Plan | Requests | Price |
 |------|----------|-------|
-| Basic | 100/mo | Free |
-| Pro | Pay per request | $0.01/req |
-| Business | 5,000/mo | $49/mo |
-| Enterprise | 25,000/mo | $99/mo |
+| Free | 100/mo | £0 |
+| Starter | 1,000/mo | £19/mo |
+| Pro | 5,000/mo | £49/mo |
+| Scale | 15,000/mo | £99/mo |
 
 Details at [hauntapi.com](https://hauntapi.com).
 
