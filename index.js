@@ -7,8 +7,6 @@
  * The real server is remote at https://hauntapi.com/mcp/
  */
 
-const { readFileSync } = require('fs');
-
 const SERVER_INFO = {
   name: 'haunt-api',
   version: '1.0.0',
@@ -41,16 +39,14 @@ const TOOLS = [
   },
 ];
 
-let requestId = 0;
-
 function sendResponse(id, result) {
   const msg = JSON.stringify({ jsonrpc: '2.0', id, result });
-  process.stdout.write(`Content-Length: ${Buffer.byteLength(msg)}\r\n\r\n${msg}`);
+  process.stdout.write('Content-Length: ' + Buffer.byteLength(msg) + '\r\n\r\n' + msg);
 }
 
 function sendError(id, code, message) {
   const msg = JSON.stringify({ jsonrpc: '2.0', id, error: { code, message } });
-  process.stdout.write(`Content-Length: ${Buffer.byteLength(msg)}\r\n\r\n${msg}`);
+  process.stdout.write('Content-Length: ' + Buffer.byteLength(msg) + '\r\n\r\n' + msg);
 }
 
 function handleRequest(msg) {
@@ -89,7 +85,9 @@ function handleRequest(msg) {
       break;
 
     default:
-      sendError(id, -32601, `Method not found: ${method}`);
+      if (id !== undefined) {
+        sendError(id, -32601, 'Method not found: ' + method);
+      }
   }
 }
 
