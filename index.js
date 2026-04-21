@@ -9,6 +9,7 @@
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { z } from 'zod';
 
 const server = new McpServer({
   name: 'haunt-api',
@@ -19,8 +20,8 @@ server.tool(
   'web_extract',
   'Extract structured data from any URL. Provide a URL and a plain-English description of what you want extracted.',
   {
-    url: { type: 'string', description: 'The URL to extract data from' },
-    prompt: { type: 'string', description: 'Describe what data you want extracted in plain English' },
+    url: z.string().describe('The URL to extract data from'),
+    prompt: z.string().describe('Describe what data you want extracted in plain English'),
   },
   async () => ({
     content: [{
@@ -34,7 +35,7 @@ server.tool(
   'get_usage',
   'Check your current API usage and remaining credits.',
   {
-    api_key: { type: 'string', description: 'Your Haunt API key' },
+    api_key: z.string().describe('Your Haunt API key'),
   },
   async () => ({
     content: [{

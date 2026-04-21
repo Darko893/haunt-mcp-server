@@ -1,11 +1,12 @@
 {
   "name": "haunt-mcp-server",
   "version": "1.0.0",
-  "description": "Haunt API — Web Extraction MCP Server",
+  "description": "Haunt API \u2014 Web Extraction MCP Server",
   "main": "index.js",
   "private": true,
   "type": "module",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.12.1"
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.23.0"
   }
 }
