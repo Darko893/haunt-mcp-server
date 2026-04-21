@@ -1,50 +1,49 @@
-# Haunt API — Web Extraction for AI Agents
+# Haunt API MCP Server
 
-**[hauntapi.com](https://hauntapi.com)** · **[Docs](https://hauntapi.com/docs)** · **[Get API Key](https://hauntapi.com/#signup)**
+Extract clean, structured data from any URL — directly from Claude, Cursor, Windsurf, or any MCP-compatible AI.
 
-A hosted MCP (Model Context Protocol) server that gives AI agents structured web extraction. Pass a URL and a plain-English prompt — get back clean JSON. No browser management, no parsing, no infrastructure.
+## Quick Start
 
-## Install
+Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json` on Mac):
 
-```bash
-claude plugin add github:Darko893/haunt-mcp-server
+```json
+{
+  "mcpServers": {
+    "haunt": {
+      "command": "npx",
+      "args": ["-y", "@hauntapi/mcp-server"],
+      "env": {
+        "HAUNT_API_KEY": "your-api-key"
+      }
+    }
+  }
+}
 ```
 
-Or install manually via Claude Code's plugin discover: `/plugin > Discover`
+Get a free API key at [hauntapi.com](https://hauntapi.com) — 100 requests/month, no credit card needed.
 
-## What it does
+## Tools
 
-Two tools, zero setup:
-
-| Tool | Description |
-|------|-------------|
-| `web_extract` | Extract structured data from any URL. Provide a URL and a description of what you want. |
-| `get_usage` | Check your current API usage and remaining credits. |
-
-Handles JavaScript rendering, Cloudflare protection, and complex page layouts automatically.
-
-## Setup
-
-1. Get a free API key at [hauntapi.com/#signup](https://hauntapi.com/#signup) (100 requests/month free)
-2. Install the plugin: `claude plugin add github:Darko893/haunt-mcp-server`
-3. Pass your API key as the `api_key` parameter on each tool call
-
-No environment variables, no config files, no local server to run.
-
-## Example usage
-
-Ask Claude to extract data from any URL:
+### `extract_url`
+Extract structured data from any web page. Provide a URL and a plain-English prompt describing what you want. Handles JavaScript rendering and Cloudflare bypass automatically.
 
 ```
 Extract the product name, price, and availability from https://example.com/product
 ```
 
-Claude will call `web_extract` with:
-- `url`: the target page
-- `prompt`: "Extract the product name, price, and availability"
-- `api_key`: your API key
+### `extract_article`
+Extract the main article content from a news article or blog post. Returns title, body text, author, and publish date.
 
-You get back structured JSON with exactly the fields you asked for.
+```
+Extract the article content from https://example.com/blog/post
+```
+
+### `extract_metadata`
+Pull metadata from any URL: title, description, Open Graph tags, Twitter cards, canonical URL.
+
+```
+Get the Open Graph metadata for https://example.com
+```
 
 ## Pricing
 
@@ -55,57 +54,8 @@ You get back structured JSON with exactly the fields you asked for.
 | Pro | 5,000/mo | £49/mo |
 | Scale | 15,000/mo | £99/mo |
 
-Details at [hauntapi.com](https://hauntapi.com).
-
-## Manual MCP config (without plugin)
-
-If you prefer to configure manually instead of using the plugin:
-
-**Claude Desktop** (SSE transport):
-```json
-{
-  "mcpServers": {
-    "haunt": {
-      "url": "https://hauntapi.com/sse"
-    }
-  }
-}
-```
-
-**Cursor / VS Code / Windsurf** (Streamable HTTP):
-```json
-{
-  "mcpServers": {
-    "haunt": {
-      "url": "https://hauntapi.com/mcp/"
-    }
-  }
-}
-```
-
-## Plugin structure
-
-```
-haunt-mcp-server/
-├── .claude-plugin/
-│   └── plugin.json        # Plugin manifest
-├── .mcp.json              # MCP server configuration
-├── skills/
-│   └── web-extraction/
-│       └── SKILL.md       # Extraction best practices
-├── README.md
-├── METADATA.md
-└── package.json           # Smithery/Glama metadata
-```
-
 ## Links
 
-- **Website**: [hauntapi.com](https://hauntapi.com)
-- **Documentation**: [hauntapi.com/docs](https://hauntapi.com/docs)
-- **API Status**: [hauntapi.com/health](https://hauntapi.com/health)
-- **MCP Status**: [hauntapi.com/mcp-health](https://hauntapi.com/mcp-health)
-
-## License
-
-This is a hosted commercial service. The plugin configuration and documentation are provided for integration purposes. The extraction engine itself is proprietary. See [hauntapi.com](https://hauntapi.com) for terms of service.
-# Haunt MCP Server
+- Website: https://hauntapi.com
+- API Docs: https://hauntapi.com/docs
+- Get API Key: https://hauntapi.com/#signup
