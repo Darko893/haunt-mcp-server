@@ -108,3 +108,4 @@ haunt-mcp-server/
 ## License
 
 This is a hosted commercial service. The plugin configuration and documentation are provided for integration purposes. The extraction engine itself is proprietary. See [hauntapi.com](https://hauntapi.com) for terms of service.
+# Haunt MCP Server
